@@ -1,0 +1,115 @@
+/* Definição de Variáveis de Cor para Temas */
+:root {
+    --bg-color: #f0f2f5;
+    --card-bg-color: #ffffff;
+    --text-color: #333333;
+    --header-color: #22223b;
+    --primary-color: #4a4e69;
+    --primary-hover-color: #3b3e54;
+    --danger-color: #e63946;
+    --danger-hover-color: #c1121f;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --modal-overlay-color: rgba(0, 0, 0, 0.6);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #121212;
+        --card-bg-color: #1e1e1e;
+        --text-color: #e0e0e0;
+        --header-color: #dadae2;
+        --primary-color: #9a8c98;
+        --primary-hover-color: #c9ada7;
+        --danger-color: #f28482;
+        --danger-hover-color: #e85d5a;
+        --border-color: #333333;
+        --shadow-color: rgba(0, 0, 0, 0.2);
+        --modal-overlay-color: rgba(0, 0, 0, 0.8);
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--card-bg-color);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px var(--shadow-color);
+    transition: background-color 0.3s;
+}
+
+.hidden { display: none; }
+
+header { text-align: center; margin-bottom: 2rem; }
+header h1 { color: var(--header-color); margin: 0; }
+header p { opacity: 0.8; }
+
+.media-geral-container { text-align: center; margin-bottom: 2rem; }
+.placar { font-size: 2.5em; font-weight: 700; color: var(--primary-color); }
+
+.configuracao-disciplina h3 { margin-top: 2rem; text-align: center; }
+.preset-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.input-group { display: flex; gap: 0.5rem; }
+.input-group input { flex-grow: 1; padding: 0.8rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 1rem; background-color: var(--bg-color); color: var(--text-color); }
+
+button { padding: 0.8rem 1.2rem; background-color: var(--primary-color); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: background-color 0.2s, transform 0.1s; }
+button:hover { background-color: var(--primary-hover-color); transform: translateY(-2px); }
+
+/* Card da Disciplina */
+.disciplina-card { display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 0.8rem; transition: box-shadow 0.2s; }
+.disciplina-card h3 { margin: 0; color: var(--header-color); }
+.disciplina-card span { font-size: 0.9em; opacity: 0.7; }
+.disciplina-actions { display: flex; gap: 0.5rem; }
+.disciplina-actions .btn-details { background-color: transparent; border: 1px solid var(--primary-color); color: var(--primary-color); }
+.disciplina-actions .btn-details:hover { background-color: var(--primary-color); color: white; }
+.disciplina-actions .btn-remove { background-color: var(--danger-color); }
+.disciplina-actions .btn-remove:hover { background-color: var(--danger-hover-color); }
+
+/* Tela de Detalhes */
+.header-detalhes { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; margin-bottom: 2rem; }
+.header-detalhes h1 { font-size: 1.8em; }
+.back-button { align-self: flex-start; }
+
+#bimestres-container-dinamico { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+.bimestre { background-color: var(--bg-color); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); }
+.bimestre h4 { margin-top: 0; text-align: center; color: var(--primary-color); }
+.bimestre input { width: calc(100% - 1.6rem); padding: 0.8rem; margin-bottom: 0.5rem; border: 1px solid var(--border-color); border-radius: 5px; background-color: var(--card-bg-color); color: var(--text-color); }
+.media-bimestre { text-align: center; font-weight: bold; margin-top: 0.5rem; }
+.resultado-final { margin-top: 2rem; padding: 1.5rem; border-radius: 8px; text-align: center; font-size: 1.2em; font-weight: 600; }
+
+/* Classes de Status */
+.aprovado { background-color: #2a9d8f20; color: #2a9d8f; }
+.recuperacao { background-color: #e9c46a20; color: #e9c46a; }
+.reprovado { background-color: #e76f5120; color: #e76f51; }
+
+/* Modal */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--modal-overlay-color); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+.modal-content { background: var(--card-bg-color); padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.3); max-width: 90%; width: 400px; }
+.modal-actions { margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem; }
+#modal-btn-sim { background-color: var(--danger-color); }
+#modal-btn-sim:hover { background-color: var(--danger-hover-color); }
+
+/* Media Queries para Responsividade */
+@media (min-width: 768px) {
+    #bimestres-container-dinamico { grid-template-columns: repeat(2, 1fr); }
+    .header-detalhes { flex-direction: row; justify-content: space-between; align-items: center; width: 100%; }
+    .back-button { order: -1; }
+    .placar { font-size: 3em; }
+}
+
